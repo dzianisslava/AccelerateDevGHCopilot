@@ -1,0 +1,72 @@
+doctype html
+html
+  head
+    title Login with OAuth2
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 100px auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+      .login-container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+      .oauth-button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        transition: transform 0.2s;
+      }
+      .oauth-button:hover {
+        transform: translateY(-2px);
+      }
+      .google {
+        background-color: #DB4437;
+      }
+      .github {
+        background-color: #24292e;
+      }
+      .microsoft {
+        background-color: #0078d4;
+      }
+      .info {
+        margin-top: 30px;
+        padding: 15px;
+        background: #f0f0f0;
+        border-radius: 4px;
+        color: #666;
+        font-size: 14px;
+      }
+
+  body
+    .login-container
+      h1 Login with OAuth2
+      
+      a(href="/auth/google", class="oauth-button google") Sign in with Google
+      a(href="/auth/github", class="oauth-button github") Sign in with GitHub
+      a(href="/auth/microsoft", class="oauth-button microsoft") Sign in with Microsoft
+
+      .info
+        h3 Note:
+        p Before using OAuth login, configure your OAuth app credentials in .env file.
+        p After successful login, you'll receive a JWT token to use with protected API endpoints.

@@ -1,0 +1,155 @@
+doctype html
+html
+  head
+    title Authentication Successful
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+      .success-container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      }
+      .success-icon {
+        font-size: 60px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: #4CAF50;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+      }
+      .token-section {
+        background: #f5f5f5;
+        padding: 20px;
+        border-radius: 4px;
+        margin: 20px 0;
+      }
+      .token-label {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      .token-value {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+        word-break: break-all;
+        font-family: monospace;
+        font-size: 12px;
+        max-height: 150px;
+        overflow-y: auto;
+      }
+      .copy-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .copy-button:hover {
+        background-color: #45a049;
+      }
+      .api-examples {
+        margin-top: 30px;
+        padding: 20px;
+        background: #f9f9f9;
+        border-left: 4px solid #667eea;
+        border-radius: 4px;
+      }
+      .api-examples h3 {
+        margin-top: 0;
+        color: #667eea;
+      }
+      code {
+        background: white;
+        padding: 10px;
+        border-radius: 4px;
+        display: block;
+        margin: 10px 0;
+        overflow-x: auto;
+        font-family: monospace;
+        font-size: 12px;
+        border: 1px solid #ddd;
+      }
+      .button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      a, button {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .btn-home {
+        background-color: #2196F3;
+        color: white;
+      }
+      .btn-home:hover {
+        background-color: #0b7dda;
+      }
+      .btn-logout {
+        background-color: #f44336;
+        color: white;
+      }
+      .btn-logout:hover {
+        background-color: #da190b;
+      }
+
+  body
+    .success-container
+      .success-icon ✅
+      h1 Login Successful!
+      .subtitle Your JWT token is ready to use with protected API endpoints
+
+      .token-section
+        .token-label JWT Token:
+        .token-value(id="token")= token
+        button.copy-button(onclick="copyToken()") Copy Token
+
+      .api-examples
+        h3 Using Your Token with Protected APIs
+        p Add the token to the Authorization header:
+        code curl -H "Authorization: Bearer #{token}" http://localhost:3000/api/profile
+        
+        p Or using JavaScript fetch:
+        code const response = await fetch('/api/profile', {
+        |   headers: { Authorization: `Bearer #{token}` }
+        | });
+
+      .button-group
+        a.btn-home(href="/") Home
+        a.btn-logout(href="/auth/logout") Logout
+
+    script.
+      function copyToken() {
+        const token = document.getElementById('token').textContent;
+        navigator.clipboard.writeText(token).then(() => {
+          alert('Token copied to clipboard!');
+        });
+      }

@@ -1,0 +1,35 @@
+{
+  "name": "hello-world-express-pug-ts",
+  "version": "1.0.0",
+  "description": "A basic Hello World application using Express, Pug, and TypeScript.",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "dev": "ts-node-dev src/app.ts"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-github2": "^0.1.12",
+    "passport-oauth2": "^1.7.0",
+    "jsonwebtoken": "^9.0.0",
+    "express-session": "^1.17.3",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.7",
+    "@types/passport": "^1.0.11",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/express-session": "^1.17.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
